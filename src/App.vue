@@ -1,19 +1,19 @@
 <template>
   <div id="app">
+    <!-- 路由占位符,给其他vue单文件组件 -->
     <router-view></router-view>
-   app根组件
   </div>
 </template>
+
 <script>
+
 export default {
-  name: 'app'
 
 }
 </script>
 
 <style>
-  div {
-    width: 100px;
-    height: 100px;
+  #app {
+    background-color: #eee;
   }
 </style>
