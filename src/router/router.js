@@ -2,18 +2,33 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/Login.vue'
 import Home from '../components/Home.vue'
+import Welcome from '../components/Welcome.vue'
+import Users from '../components/user/Users.vue'
+import Roles from '../components/role/Roles.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
   { path: '/login', component: Login },
   { path: '/', redirect: '/login' },
-  { path: '/home', component: Home }
+  {
+    path: '/home',
+    component: Home,
+    redirect: '/welcome',
+    children: [
+      { path: '/welcome', component: Welcome },
+      { path: '/users', component: Users },
+      { path: '/roles', component: Roles },
+
+    ]
+  }
 
 ]
 
 const router = new VueRouter({
-  routes
-})
+    routes
+  })
+  // 登录拦截
 router.beforeEach((to, from, next) => {
   if (to.path === '/login') { return next() }
   const token = window.sessionStorage.getItem('token')
