@@ -24,7 +24,8 @@ import {
   Pagination,
   Dialog,
   Popover,
-  Tag
+  Tag,
+  MessageBox
 } from 'element-ui'
 
 Vue.use(Button)
@@ -52,3 +53,4 @@ Vue.use(Dialog)
 Vue.use(Popover)
 Vue.use(Tag)
 Vue.prototype.$message = Message
+Vue.prototype.$confirm = MessageBox.confirm
